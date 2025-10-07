@@ -11,3 +11,4 @@ reference/
 *.gz
 *.fq.gz
 *.fasta
+*.zip
