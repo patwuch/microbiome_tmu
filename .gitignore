@@ -1,0 +1,13 @@
+reference/
+*.qza
+*.qzv
+*.biom
+*.tsv
+*.nwk
+*.jsonl
+*.html
+*.xlsx
+*.fastq
+*.gz
+*.fq.gz
+*.fasta

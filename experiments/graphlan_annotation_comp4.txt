@@ -1,0 +1,4 @@
+Node	Color	Size
+Bacteria|Firmicutes|Clostridia|Clostridiales|Clostridiaceae|Clostridium_sensu_stricto_1	red	1.15952120039106
+Bacteria|Firmicutes|Clostridia|Clostridiales|Clostridiaceae|Clostridium_sensu_stricto_1	red	1.25646046177374
+Bacteria|Firmicutes|Clostridia|Peptostreptococcales-Tissierellales|Peptostreptococcaceae|Romboutsia	red	1.09976785406419
