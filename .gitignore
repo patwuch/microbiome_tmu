@@ -12,3 +12,4 @@ reference/
 *.fq.gz
 *.fasta
 *.zip
+*:Zone.Identifier
