@@ -13,3 +13,8 @@ reference/
 *.fasta
 *.zip
 *:Zone.Identifier
+*.ntree
+*.fna
+*.tree
+*.xml
+*.txt
