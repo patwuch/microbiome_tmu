@@ -1,0 +1,49 @@
+# Configuration file for Core Lab Microbiome Analysis Pipeline
+# Please modify the parameters below to suit your project needs
+# The first run will generate a manifest files
+# Please use a simple spreadsheet software to create metadata.tsv 
+# and save it as a tab-delimited text file
+# After the first run, you can modify other parameters as needed
+
+# Pick from 'NGS' or 'TGS'
+SEQUENCE_TYPE: 'NGS'
+# Pick from 'Full' or 'V3V4' of the 16S rRNA gene region
+REGION: 'Full'
+# Study name, enter a unique name for your project
+STUDY_NAME: 'Reza'
+
+# Specify reference genome database
+# Commented out databases are not supported yet
+REFERENCE_DB:
+ - 'Greengenes2'
+#  - 'SILVA138'
+#  - 'NCBI'
+
+# Specify grouping column name in metadata for diversity analysis
+# Commented out columns are not supported yet
+GROUPING_COLUMN: 
+  - 'Group'
+  # - 'Subject'
+  # - 'Timepoint'
+
+
+# Choose differential abundance methods to perform
+# Commented out methods are not supported yet
+DIFFERENTIAL_ABUNDANCE_METHODS:
+  - 'LEfSe'
+  # - 'ALDEx2'
+  # - 'ANCOMBC2'
+RUN_PICRUST2: true
+
+# # Choose alpha/beta diversity metrics to compute
+# # Comment out any metrics you do not wish to compute
+# ALPHA_DIVERSITY_METRICS:
+#   - 'shannon'
+#   - 'observed_features'
+#   - 'faith_pd'
+#   - 'evenness'
+# BETA_DIVERSITY_METRICS:
+#   - 'bray_curtis'
+#   - 'jaccard'
+#   - 'unweighted_unifrac'
+#   - 'weighted_unifrac'

@@ -1,0 +1,80 @@
+###############################################
+# CONFIG & IMPORTS
+###############################################
+import os
+from pathlib import Path
+from snakemake.io import directory
+
+configfile: "config.yaml"
+
+# Load config parameters
+sequence_type = config["SEQUENCE_TYPE"]
+region = config["REGION"]
+study_name = config["STUDY_NAME"]
+reference_db = config["REFERENCE_DB"]
+
+# Validate config
+if sequence_type not in ["NGS", "TGS"]:
+    raise ValueError("SEQUENCE_TYPE must be 'NGS' or 'TGS'.")
+if region not in ["Full", "V3V4"]:
+    raise ValueError("REGION must be 'Full' or 'V3V4'.")
+
+###############################################
+# GLOBAL PATHS
+###############################################
+REPO_ROOT = Path(workflow.basedir).parent
+WORK_DIR = REPO_ROOT / "work"
+REF_DIR = REPO_ROOT / "reference"
+
+# Study-specific directories
+STUDY_DIR = WORK_DIR / study_name
+RAW_DIR = STUDY_DIR / "raw_data"
+QIIME_DIR = STUDY_DIR / "qiime2_artifacts"
+PLOTS_DIR = STUDY_DIR / "plots"
+TABLES_DIR = STUDY_DIR / "tables"
+
+###############################################
+# CREATE REQUIRED DIRECTORIES
+###############################################
+rule make_dirs:
+    run:
+        STUDY_DIR.mkdir(parents=True, exist_ok=True)
+        RAW_DIR.mkdir(parents=True, exist_ok=True)
+        QIIME_DIR.mkdir(parents=True, exist_ok=True)
+        PLOTS_DIR.mkdir(parents=True, exist_ok=True)
+        TABLES_DIR.mkdir(parents=True, exist_ok=True)
+
+
+###############################################
+# RULE ALL
+###############################################
+rule all:
+    input:
+        STUDY_DIR / "manifest.tsv",
+        directory(STUDY_DIR),
+        directory(RAW_DIR),
+        directory(QIIME_DIR),
+        directory(PLOTS_DIR),
+        directory(TABLES_DIR)
+
+###############################################
+# STEP 1 — Build Manifest
+###############################################
+rule generate_manifest:
+    input:
+        dir=directory(RAW_DIR)
+    output:
+        manifest_file = STUDY_DIR / "manifest.tsv"
+    params:
+        raw_dir = RAW_DIR,
+        sequence_type = sequence_type,
+        region = region,
+        study_dir = STUDY_DIR
+    shell:
+        """
+        python build_manifest.py \
+            --raw "{params.raw_dir}" \
+            --seqtype "{params.sequence_type}" \
+            --region "{params.region}" \
+            --out "{output.manifest_file}"
+        """

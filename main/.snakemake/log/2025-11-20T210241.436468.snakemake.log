@@ -1,0 +1,48 @@
+Assuming unrestricted shared filesystem usage.
+host: DESKTOP-IJGFCQD
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job stats:
+job          count
+---------  -------
+make_dirs        1
+total            1
+
+Select jobs to execute...
+Execute 1 jobs...
+[Thu Nov 20 21:02:41 2025]
+localrule make_dirs:
+    output: /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza, /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/raw_data, /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/qiime2_artifacts, /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/plots, /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/tables
+    jobid: 0
+    reason: Missing output files: /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/plots, /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/qiime2_artifacts, /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/tables
+    resources: tmpdir=/tmp
+Skipped removing non-empty directory /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza
+Skipped removing non-empty directory /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/raw_data
+Waiting at most 5 seconds for missing files:
+/home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/qiime2_artifacts (missing locally)
+/home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/plots (missing locally)
+/home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/tables (missing locally)
+MissingOutputException in rule make_dirs in file "/home/patwuch/projects/core_lab_microbiome_tmu/main/Snakefile", line 47:
+Job 0 completed successfully, but some output files are missing. Missing files after 5 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+/home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/qiime2_artifacts (missing locally, parent dir contents: metadata.tsv, RawCleanData, lefse, metadata.tsv:Zone.Identifier, raw_data, RawCleanData.tar:Zone.Identifier, main_lefse.sh, BI-ANA-10020-台北醫學大學1鄧志堅-32xFL16S-NCBI (1).zip:Zone.Identifier, BI-ANA-10020-台北醫學大學1鄧志堅-32xFL16S-NCBI (1).zip, RawCleanData.tar)
+/home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/plots (missing locally, parent dir contents: metadata.tsv, RawCleanData, lefse, metadata.tsv:Zone.Identifier, raw_data, RawCleanData.tar:Zone.Identifier, main_lefse.sh, BI-ANA-10020-台北醫學大學1鄧志堅-32xFL16S-NCBI (1).zip:Zone.Identifier, BI-ANA-10020-台北醫學大學1鄧志堅-32xFL16S-NCBI (1).zip, RawCleanData.tar)
+/home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/tables (missing locally, parent dir contents: metadata.tsv, RawCleanData, lefse, metadata.tsv:Zone.Identifier, raw_data, RawCleanData.tar:Zone.Identifier, main_lefse.sh, BI-ANA-10020-台北醫學大學1鄧志堅-32xFL16S-NCBI (1).zip:Zone.Identifier, BI-ANA-10020-台北醫學大學1鄧志堅-32xFL16S-NCBI (1).zip, RawCleanData.tar)
+Removing output files of failed job make_dirs since they might be corrupted:
+/home/patwuch/projects/core_lab_microbiome_tmu/work/Reza, /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/raw_data
+Skipped removing non-empty directory /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza
+Skipped removing non-empty directory /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/raw_data
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Thu Nov 20 21:02:46 2025]
+Error in rule make_dirs:
+    message: None
+    jobid: 0
+    output: /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza, /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/raw_data, /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/qiime2_artifacts, /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/plots, /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/tables
+    shell:
+        echo "Creating directories if they do not exist..." mkdir -p /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/raw_data /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/qiime2_artifacts /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/plots /home/patwuch/projects/core_lab_microbiome_tmu/work/Reza/tables
+        (command exited with non-zero exit code)
+Complete log(s): /home/patwuch/projects/core_lab_microbiome_tmu/main/.snakemake/log/2025-11-20T210241.436468.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

@@ -1,0 +1,4 @@
+SyntaxError in file "/home/patwuch/projects/core_lab_microbiome_tmu/main/Snakefile", line 47:
+invalid syntax:
+        study=directory(STUDY_DIR),
+
